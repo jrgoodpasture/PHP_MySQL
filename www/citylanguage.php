@@ -1,12 +1,39 @@
 <html>
 	<body>
 		<A HREF = "homepage.html">Home Page</A> </br>
+		<p>
+		What language would you like to search for?
+		
+  			
+  			<?php 
+				require_once('mysqli_connect.php');
+				echo "<select name=\"formLanguage\">";
+				echo "<option value=\"\">Select...</option>";
+
+				$query = "SELECT Name FROM LANGUAGE";
+				$response = mysqli_query($dbc, $query);
+				if($response) {
+					while($row = mysqli_fetch_array($response)) {
+						echo "<option value=$row[Name]/option>";
+						echo '<tr><td align = left">' .
+						$row['Name'] . '</td><td align = "left">';
+						echo '</tr>';
+					}
+				}
+			
+			?>
+
+		</select>
+		</p>
 	</body>
 </html>
 
 <?php
 
 require_once('mysqli_connect.php');
+
+
+
 
 $query = "SELECT City_Name
 FROM City_Language
@@ -20,6 +47,7 @@ if($response) {
 
 	<tr>
 		<td align = "left"><B> City Name</b></td>
+
 	</tr>';
 
 	while($row = mysqli_fetch_array($response)) {
