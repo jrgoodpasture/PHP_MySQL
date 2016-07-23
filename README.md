@@ -18,3 +18,5 @@
 3. Go to the location of the wampserver folder in your computer (e.g. C:/wamp64)
 
 4. Delete the existing "www" folder and paste your copied "www" folder.
+
+5. Go to your internet browser and type in "localhost" 
