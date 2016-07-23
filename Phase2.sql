@@ -44,8 +44,8 @@ CREATE TABLE CITY
 (
  Country_Name		VARCHAR(30)		NOT NULL,
  City_Name			VARCHAR(30)		NOT NULL,
- Longitude			DECIMAL(9,6)	NOT NULL,
- Latitude			DECIMAL(9,6)	NOT NULL,
+ Longitude			VARCHAR(7)		NOT NULL,
+ Latitude			VARCHAR(7)		NOT NULL,
  City_Population	INT				NOT NULL,
  PRIMARY KEY (Country_Name, City_Name),
  UNIQUE (Longitude, Latitude),
@@ -55,10 +55,10 @@ CREATE TABLE CITY
 );
 
 INSERT INTO CITY
-VALUES ('Spain', 'Madrid', 40, 41, 6489162), ('Spain', 'Barcelona', 40, 43, 5375774),
-('Spain', 'Valencia', 40, 45, 2516818), ('Ireland', 'Dublin', 45, 32, 1801040),
-('France', 'Paris', 43, 32, 12405426), ('Monaco', 'Monaco', 45, 33, 37731),
-('Belgium', 'Brussels', 45, 17, 1837000), ('France', 'Nice', 12, 17, 2537000);
+VALUES ('Spain', 'Madrid', '03 41 W', '40 24 N', 6489162), ('Spain', 'Barcelona', '02 11 E', '41 23 N', 5375774),
+('Spain', 'Valencia', '00 23 W', '39 28 N', 2516818), ('Ireland', 'Dublin', '06 15 W', '53 20 N', 1801040),
+('France', 'Paris', '02 20 E', '48 52 N', 12405426), ('Monaco', 'Monaco', '07 25 E', '43 43 N', 37731),
+('Belgium', 'Brussels', '04 21 E', '50 51 N', 1837000), ('France', 'Nice', '07 26 N', '43 71 N', 2537000);
 
 CREATE TABLE CAPITAL
 (
@@ -298,3 +298,8 @@ SELECT City_Name, COUNT(*) as Languages_Spoken
 FROM CITY_LANGUAGE
 WHERE Country_Name = 'Spain'
 GROUP BY City_Name;
+
+CREATE View Two_Lang As
+SELECT Country_Name, Lang_Name
+FROM Country_Language NATURAL JOIN Country
+ORDER BY Country_Name;
