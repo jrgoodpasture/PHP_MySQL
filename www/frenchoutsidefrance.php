@@ -8,7 +8,7 @@
 
 require_once('mysqli_connect.php');
 
-$query = "SELECT City_Name
+$query = "SELECT City_Name, Country_Name
 FROM CITY_LANGUAGE
 WHERE Lang_Name = 'French' and Country_Name != 'France'";
 
