@@ -20,3 +20,31 @@
 4. Delete the existing "www" folder and paste your copied "www" folder.
 
 5. Go to your internet browser and type in "localhost" 
+
+##Users and Privileges
+
+1. Open mySQL workbench
+
+2. Open Users and Priveileges
+
+3. Click add account
+
+4. Change login name to user
+
+5. Change limit to Hosts Matching to "localhost"
+
+6. Change password to "pass"
+
+7. Click apply
+
+8. Click on user on the left
+
+9. CLick the schema privileges tab
+
+10. Click Add Entry...
+
+11. Click ok
+
+11. Select All
+
+12. Apply
